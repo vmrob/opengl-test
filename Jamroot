@@ -1,6 +1,11 @@
+lib SDL2 ;
+lib SDL2main ;
+
 exe opengl-test : [ glob src/*.cpp ] :
-	<cxxflags>"-fcolor-diagnostics -stdlib=libc++ -std=c++1y"
+	<cxxflags>"-fcolor-diagnostics --stdlib=libc++ --std=c++1y"
 	<framework>OpenGl
+	<library>SDL2
+	<library>SDL2main
 ;
 
 install . : opengl-test ;

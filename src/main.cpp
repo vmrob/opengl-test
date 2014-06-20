@@ -1,6 +1,9 @@
-#include <iostream>
-#include <OpenGL/gl.h>
+#include <SDL.h>
 
 int main() {
-	std::cout << "hello world" << std::endl;
+
+	SDL_Init(SDL_INIT_EVERYTHING);
+	SDL_Delay(1000);
+	SDL_Quit();
+	
 }
