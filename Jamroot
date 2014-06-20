@@ -1,0 +1,6 @@
+exe opengl-test : [ glob src/*.cpp ] :
+	<cxxflags>"-fcolor-diagnostics -stdlib=libc++ -std=c++1y"
+	<framework>OpenGl
+;
+
+install . : opengl-test ;
