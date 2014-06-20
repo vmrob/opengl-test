@@ -1,11 +1,14 @@
 lib SDL2 ;
 lib SDL2main ;
+lib GLEW ;
 
 exe opengl-test : [ glob src/*.cpp ] :
 	<cxxflags>"-fcolor-diagnostics --stdlib=libc++ --std=c++1y"
 	<framework>OpenGl
 	<library>SDL2
 	<library>SDL2main
+	<library>GLEW
+	<define>GLEW_STATIC
 ;
 
 install . : opengl-test ;
