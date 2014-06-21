@@ -17,7 +17,7 @@ public:
 	void startEventLoop();
 
 private:
-	std::unique_ptr<SDL_Window, SDLWindowDeleter> _sdlWindow;
+	std::unique_ptr<SDL_Window, SDLWindowDeleter> _sdlWindowPtr;
 	SDL_GLContext _sdlContext;
 	
 	SDL_Event _windowEvent;

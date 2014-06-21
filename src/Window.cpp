@@ -9,11 +9,11 @@ Window::Window(const std::string& name, int pixelWidth, int pixelHeight) {
 }
 
 void Window::_createContext() {
-	_sdlContext = SDL_GL_CreateContext(_sdlWindow.get());
+	_sdlContext = SDL_GL_CreateContext(_sdlWindowPtr.get());
 }
 
 void Window::_createWindow(const std::string& name, int pixelWidth, int pixelHeight) {
-	_sdlWindow.reset(
+	_sdlWindowPtr.reset(
 		SDL_CreateWindow(
 			name.c_str(),
 			SDL_WINDOWPOS_CENTERED,
@@ -31,7 +31,6 @@ Window::~Window() {
 void Window::startEventLoop() {
 	while (_shouldContinue) {
 		_draw();
-
 		_pollEvents();
 	}
 }
@@ -55,7 +54,7 @@ void Window::_draw() {
 }
 
 void Window::_swapFrameBuffers() {
-	SDL_GL_SwapWindow(_sdlWindow.get());
+	SDL_GL_SwapWindow(_sdlWindowPtr.get());
 }
 
 } // namespace gltest
