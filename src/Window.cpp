@@ -29,13 +29,10 @@ Window::~Window() {
 }
 
 void Window::startEventLoop() {
-	while (true) {
-		_pollEvents();
-		if (_shouldClose) {
-			break;
-		}
-
+	while (_shouldContinue) {
 		_draw();
+
+		_pollEvents();
 	}
 }
 
@@ -47,13 +44,13 @@ void Window::_pollEvents() {
 
 void Window::_handleEvent() {
 	if (_windowEvent.type == SDL_QUIT) {
-		_shouldClose = true;
+		_shouldContinue = false;
 	}
 }
 
 void Window::_draw() {
 	// TODO: draw stuff
-	
+
 	_swapFrameBuffers();
 }
 

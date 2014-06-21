@@ -21,7 +21,7 @@ private:
 	SDL_GLContext _sdlContext;
 	
 	SDL_Event _windowEvent;
-	bool _shouldClose = false;
+	bool _shouldContinue = true;
 
 	void _createWindow(const std::string& name, int pixelWidth, int pixelHeight);
 	void _createContext();
